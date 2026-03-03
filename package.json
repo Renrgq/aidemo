@@ -1,0 +1,24 @@
+{
+  "name": "aidemo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "element-plus": "^2.13.2",
+    "vue": "^3.5.25"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/tsconfig": "^0.5.0",
+    "typescript": "~5.6.2",
+    "vite": "^5.0.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
