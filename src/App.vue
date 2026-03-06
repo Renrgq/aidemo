@@ -1,10 +1,20 @@
 <template>
   <div class="app-container">
     <el-container class="container">
-      <el-aside :width="collapsed ? '64px' : '200px'" class="aside">
+      <el-aside
+        :width="collapsed ? '64px' : '200px'"
+        class="aside"
+      >
         <div class="logo">
-          <el-image src="/vite.svg" fit="cover" class="logo-img" />
-          <span v-if="!collapsed" class="logo-text">管理系统</span>
+          <el-image
+            src="/vite.svg"
+            fit="cover"
+            class="logo-img"
+          />
+          <span
+            v-if="!collapsed"
+            class="logo-text"
+          >管理系统</span>
         </div>
         <el-menu
           :default-active="$route.path"
@@ -16,27 +26,19 @@
           active-text-color="#409EFF"
         >
           <el-menu-item index="/dashboard">
-            <template #icon>
-              <HomeFilled />
-            </template>
+            <el-icon><Search /></el-icon>
             <span v-if="!collapsed">仪表盘</span>
           </el-menu-item>
           <el-menu-item index="/users">
-            <template #icon>
-              <UserFilled />
-            </template>
+            <el-icon><Search /></el-icon>
             <span v-if="!collapsed">用户管理</span>
           </el-menu-item>
           <el-menu-item index="/products">
-            <template #icon>
-              <GoodsFilled />
-            </template>
+            <el-icon><Search /></el-icon>
             <span v-if="!collapsed">产品管理</span>
           </el-menu-item>
           <el-menu-item index="/settings">
-            <template #icon>
-              <Setting />
-            </template>
+            <el-icon><Search /></el-icon>
             <span v-if="!collapsed">设置</span>
           </el-menu-item>
         </el-menu>
@@ -52,17 +54,24 @@
       </el-aside>
       <el-container class="main-container">
         <el-header class="header">
-          <div class="header-title">{{ $route.name }}</div>
+          <div class="header-title">
+            {{ $route.name }}
+          </div>
           <div class="header-user">
             <el-dropdown>
               <span class="user-info">
-                <el-avatar size="small" :src="'/vite.svg'" />
+                <el-avatar
+                  size="small"
+                  :src="'/vite.svg'"
+                />
                 <span v-if="!collapsed">管理员</span>
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
                   <el-dropdown-item>个人中心</el-dropdown-item>
-                  <el-dropdown-item @click="handleLogout">退出登录</el-dropdown-item>
+                  <el-dropdown-item @click="handleLogout">
+                    退出登录
+                  </el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
@@ -77,20 +86,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Menu, HomeFilled, UserFilled, GoodsFilled, Setting } from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { ElMessage } from 'element-plus'
 
-const collapsed = ref(false)
-const router = useRouter()
+  const collapsed = ref(false)
+  const router = useRouter()
 
-const handleLogout = () => {
-  // 清除登录状态
-  localStorage.removeItem('isLoggedIn')
-  ElMessage.success('退出登录成功')
-  router.push('/login')
-}
+  const handleLogout = () => {
+    // 清除登录状态
+    localStorage.removeItem('isLoggedIn')
+    ElMessage.success('退出登录成功')
+    router.push('/login')
+  }
 </script>
 
 <style scoped>
@@ -177,7 +185,7 @@ const handleLogout = () => {
   padding: 0 20px;
   height: 60px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 .header-title {
